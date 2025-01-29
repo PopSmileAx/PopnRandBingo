@@ -17,13 +17,20 @@ function download() {
   });
 }
 
-function makeRandom(){
+function makeRandom(pathNo){
 
   // (1) XMLHttpRequestオブジェクトを作成
   const xhr = new XMLHttpRequest();
 
-  // (2) 取得するファイルの設定
-  xhr.open('get', '../Data/MusicName.txt');
+// (2) 取得するファイルの設定
+  switch (pathNo){
+    case 47:
+      xhr.open('get', '/Data/MusicName.txt');
+      break;
+    default:
+      break;
+  }
+
   // xhr.responseType = 'blob'; (ファイル形式によって設定）
 
   // (3) リクエスト（要求）を送信
