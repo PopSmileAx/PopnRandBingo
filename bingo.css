@@ -9,14 +9,35 @@
 .BingoTable
 { 
 	border-collapse: collapse;
-}
+  table-layout: fixed;
+  width: 390px;
+  margin: auto;
 
-.BingoTable td,th
+}
+.BingoTable th
 {
   border: 1px #000000 dashed;
-  width: 130px;
+
+}
+
+.BingoTable td
+{
+  border: 1px #000000 dashed;
+  width: 33%;
   height: 130px;
   text-align: center;
   vertical-align: middle; 
+  overflow-wrap : break-word;
 
+}
+
+.ButtonArea
+{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.HeadArea
+{
+  text-align: center;
 }
