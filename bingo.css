@@ -13,6 +13,8 @@
   width: 300px;
   margin: auto;
 
+  background-color: #fff9f4;
+
 }
 .BingoTable th
 {
@@ -29,6 +31,28 @@
   vertical-align: middle; 
   overflow-wrap : break-word;
 
+  border-radius: 70%;
+}
+
+.tdRed
+{
+  background-color: #ffcccc
+}
+.tdBlue
+{
+  background-color: #cce5ff
+}
+.tdYellow
+{
+  background-color: #ffffcc
+}
+.tdGreen
+{
+  background-color: #ccffcc
+}
+.tdWhite
+{
+  background-color: #ffffff
 }
 
 .ButtonArea
