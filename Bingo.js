@@ -25,7 +25,7 @@ function makeRandom(pathNo){
 // (2) 取得するファイルの設定
   switch (pathNo){
     case 47:
-      xhr.open('get', '/Data/MusicName.txt');
+      xhr.open('get', '/Data/47Music.txt');
       break;
     default:
       break;
