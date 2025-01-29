@@ -13,42 +13,40 @@
   width: 300px;
   margin: auto;
 
-  background-color: #fff9f4;
+  background-color: #ffefff
 
 }
 .BingoTable th
 {
-  border: 1px #000000 dashed;
+  border: 2px #93ffff dashed;
   height: 50px;
 }
 
 .BingoTable td
 {
-  border: 1px #000000 dashed;
+  border: 2px #93ffff dashed;
   width: 33%;
   height: 120px;
   text-align: center;
   vertical-align: middle; 
   overflow-wrap : break-word;
-
-  border-radius: 70%;
 }
 
 .tdRed
 {
-  background-color: #ffcccc
+  background-color: #ffe0e0
 }
 .tdBlue
 {
-  background-color: #cce5ff
+  background-color: #e0ffff
 }
 .tdYellow
 {
-  background-color: #ffffcc
+  background-color: #ffffe0
 }
 .tdGreen
 {
-  background-color: #ccffcc
+  background-color: #e0ffe0
 }
 .tdWhite
 {
