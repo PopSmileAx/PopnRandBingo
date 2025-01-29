@@ -1,4 +1,4 @@
-<@charset "UTF-8";>
+@charset "utf-8";
 
 #target
 {
@@ -10,21 +10,21 @@
 { 
 	border-collapse: collapse;
   table-layout: fixed;
-  width: 390px;
+  width: 300px;
   margin: auto;
 
 }
 .BingoTable th
 {
   border: 1px #000000 dashed;
-
+  height: 50px;
 }
 
 .BingoTable td
 {
   border: 1px #000000 dashed;
   width: 33%;
-  height: 130px;
+  height: 120px;
   text-align: center;
   vertical-align: middle; 
   overflow-wrap : break-word;
