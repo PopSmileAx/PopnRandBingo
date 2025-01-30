@@ -61,5 +61,16 @@
 
 .HeadArea
 {
+  margin-top: 10px;
   text-align: center;
+}
+
+.AboutArea
+{
+  font-size: "90%";
+  margin-top: 20px;
+}
+
+#levelSelect{
+  border: 2px solid skyblue;
 }
