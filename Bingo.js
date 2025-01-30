@@ -8,7 +8,7 @@ function download() {
     var dataURL = canvas.toDataURL();
     var link = document.createElement("a");
     link.href = dataURL;
-    link.download = "download.png";
+    link.download = "download_" + yyyyMMddHHmmss() + ".png";
     link.click();
   });
 }
@@ -101,3 +101,30 @@ function countGrapheme(string) {
   const segmenter = new Intl.Segmenter("ja", { granularity: "grapheme" });
   return [...segmenter.segment(string)].length;
 }
+
+
+// クラスのインスタンス化
+const currentDate = new Date();
+// 年
+const year = currentDate.getFullYear();
+// 月
+const month = currentDate.getMonth() + 1;
+// 日
+const day = currentDate.getDate();
+// 時間
+const hour = currentDate.getHours();
+// 分
+const min = currentDate.getMinutes();
+// 秒
+const sec = currentDate.getSeconds();
+
+function yyyyMMddHHmmss() {
+  const date =
+    year +
+    String(month).padStart(2, "0") +
+    String(day).padStart(2, "0") +
+    String(hour).padStart(2, "0") +
+    String(min).padStart(2, "0") +
+    String(sec).padStart(2, "0");
+  return date;
+};
