@@ -13,23 +13,46 @@ function download() {
   });
 }
 
-function makeRandom(pathNo) {
+function makeRandom() {
+
+  const selectList = document.getElementById('levelSelect');
+  const option = selectList.value;
 
   // (1) XMLHttpRequestオブジェクトを作成
   const xhr = new XMLHttpRequest();
   let headerText = "";
 
   // (2) 取得するファイルの設定
-  switch (pathNo) {
-    case 47:
+  switch (option) {
+    case "45":
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/45Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（45）";
+      break;
+    case "46":
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/46Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（46）";
+      break;
+    case "47":
       xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/47Music.txt');
       headerText = "ポップンランダムお題ビンゴ（47）";
       break;
+    case "48":
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/48Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（48）";
+      break;
+    case "49":
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/49Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（49）";
+      break;
+    case "50":
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（50）";
+      break;
     default:
+      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt');
+      headerText = "ポップンランダムお題ビンゴ（50）";
       break;
   }
-
-  // xhr.responseType = 'blob'; (ファイル形式によって設定）
 
   // (3) リクエスト（要求）を送信
   xhr.send();

@@ -32,13 +32,29 @@
 	</table>
 </div>
 <div class="ButtonArea">
-	<input type="button" value="お題作成" style="width:100px;height:50px;" onclick="makeRandom(47)">
+		<select class="levelList" id="levelSelect">
+			<option value="">レベル選択</option>
+			<option value="45">45</option>
+			<option value="46">46</option>
+			<option value="47">47</option>
+			<option value="48">48</option>
+			<option value="49">49</option>
+			<option value="50">50</option>
+		</select>
+		<input type="button" value="お題作成" style="width:100px;height:50px;" onclick="makeRandom()">
 	<input type="button" value="ダウンロード" style="width:100px;height:50px;" onclick="download()">
 </div>
 	<div class="AboutArea">
 		お題作成ボタンを押すと、マスの中に曲名が表示されます。<br>
 		お題はボタンを押せば何回でも作り直せます。<br>
-		ダウンロードで画像をダウンロードできます。<br>
+		ダウンロードボタンで画像をダウンロードできます。<br>
+		お題は無条件解禁に限定しています。<br>
+	</div>
+	<div class="ThankYouArea">
+		<p>楽曲名取得先</p>
+		<ul>
+			<li><a href="https://popn.wiki/start">ポップンミュージック上級攻略Wiki</a></li>
+		</ul>
 	</div>
 </body>
 </html>

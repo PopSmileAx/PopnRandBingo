@@ -67,10 +67,15 @@
 
 .AboutArea
 {
-  font-size: "90%";
+  font-size: "80%";
+  margin-top: 20px;
+}
+.ThankYouArea
+{
+  font-size: "80%";
   margin-top: 20px;
 }
 
-#levelSelect{
+.levelList{
   border: 2px solid skyblue;
 }
