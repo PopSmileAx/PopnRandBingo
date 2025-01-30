@@ -67,15 +67,25 @@
 
 .AboutArea
 {
+  text-align: center;
   font-size: "80%";
   margin-top: 20px;
 }
 .ThankYouArea
 {
+  text-align: center;
   font-size: "80%";
   margin-top: 20px;
 }
 
 .levelList{
   border: 2px solid skyblue;
+}
+
+ul{
+  padding-left:0;
+}
+
+li{
+  list-style:none;
 }
