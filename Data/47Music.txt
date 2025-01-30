@@ -135,8 +135,8 @@ virtual killer
 革命パッショネイト
 murmur twins
 元禄花吹雪
-クラゲータ
-エイプリルフールの唄
+クラゲータ(UPPER)
+エイプリルフールの唄(UPPER)
 叛逆のディスパレート
 放課後コンチェルティーノ～私だけの部室狂騒曲
 六花美人
@@ -147,17 +147,17 @@ Floccinaucinihilipilification
 Invisible Farewell
 Jetcoaster Windy
 ♥LOVE² シュガ→♥ (かめりあ&ななひら's Over-Sweet-Dempa ♥LOVE² シュガ→♥な恋愛教室 Remix)
-perditus†paradisus
+perditus†paradisus(UPPER)
 SDVX REMIX SELECTION for pop'n music vol.01
 Visterhv
-鳳凰 ～Chinese Phoenix Mix～
-少年リップルズ
+鳳凰 ～Chinese Phoenix Mix～(UPPER)
+少年リップルズ(UPPER)
 朧月覆う雲をも裂きぬ
 極悪の華
 十界
 水晶塔のオルカ
 世界の果てに約束の凱歌を-pop'n ver.-
-セツナトリップ
+セツナトリップ(UPPER)
 天空ジオグラフィ
 天和無双
 嘆きの樹 (BEMANI SYMPHONY Arr.)
@@ -176,38 +176,7 @@ Revived After Ruined Shine
 Slime Molds
 smile
 Swinging Skulls
-virkatoの主題によるperson09風超絶技巧変奏曲
-カタルシスの月
-オッタマゲッター
-鴉
-キリステゴメン
-情熱タンデムRUNAWAY
-弾幕信仰
-地方創生☆チクワクティクス
-Treasure Hoard
-めうめうぺったんたん！！ (ZAQUVA Remix)
-ユメブキ
-Amulet of Enbarr
-Bye Bye
-Empty Backdoor
-fallen leaves -IIDX edition-
-Head Scratcher
-ISERBROOK
-Journey
-LIMIT TOPPA REVOLUTION
-Shout It Out
-speedstar[02]
-Stylus
-Τέλος
-THE SAFARI - NEETs ver. -
-unisonote
-UROBOROS OVERDIVE
-一触即発☆禅ガール
-ハートのフリット
-Cookie Bouquets
-Levitation Minneapolis
-Electronic or Treat!
-The Die is cast.
+virkatoの主題によるperson09風超絶技巧変奏曲(UPPER)
 maritare!
 The tyro’s reverie
 BEYOND THE EARTH
@@ -217,6 +186,15 @@ Little prayer
 IMPLANTATION
 Craze for You
 1/6 billionth
+鴉
+Bye Bye
+Empty Backdoor
+Journey
+LIMIT TOPPA REVOLUTION
+THE SAFARI - NEETs ver. -
+一触即発☆禅ガール(UPPER)
+Levitation Minneapolis
+The Die is cast.
 螺子之人
 Sweet Sweet ♥ Magic
 月光蝶
