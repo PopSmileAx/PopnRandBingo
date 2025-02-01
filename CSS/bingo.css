@@ -3,16 +3,16 @@
 #target
 {
 
-  
 }
 
+/* ビンゴ表示エリア */
 .BingoTable
 { 
 	border-collapse: collapse;
   table-layout: fixed;
-  width: 320px;
   margin: auto;
 
+  width: 320px;
   background-color: #ffefff
 
 }
@@ -26,7 +26,7 @@
 {
   border: 2px #93ffff dashed;
   width: 33%;
-  height: 120px;
+  height: 0px;
   text-align: center;
   vertical-align: middle; 
   overflow-wrap : break-word;
@@ -53,10 +53,55 @@
   background-color: #ffffff
 }
 
+/* ダウンロードボタン */
+.dlArea
+{
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 設定エリア */
 .ButtonArea
 {
+  table-layout: fixed;
+  margin: auto;
+  width: 80%;
   margin-top: 20px;
   text-align: center;
+}
+.ButtonHeader
+{
+  width: 20%;
+  font-size: 90%;
+}
+.ButtonBody
+{
+  text-align: center;
+  width: 80%;
+}
+.levelCheck
+{
+  line-height: 3;
+}
+
+.radiobutton{
+  display: none;
+}
+
+label{
+  cursor: pointer;
+  padding: 8px 15px;
+  border: 1px solid #434343;
+  border-radius: 10px;
+}
+.check_box{
+  display: none;
+}
+.check_box:checked + label {
+  background-color: #6af;
+}
+.radiobutton:checked + label {
+  background-color: #6af;
 }
 
 .HeadArea
@@ -65,16 +110,38 @@
   text-align: center;
 }
 
+/* 説明エリア */
 .AboutArea
 {
-  text-align: center;
+  width: 80%;
+  table-layout: fixed;
+  margin: auto;
+  text-align: left;
   font-size: "80%";
   margin-top: 20px;
 }
 .ThankYouArea
 {
-  text-align: center;
+  width: 80%;
+  table-layout: fixed;
+  margin: auto;
+  text-align: left;
   font-size: "80%";
+  margin-top: 20px;
+}
+
+h3
+{
+  background-color: honeydew;
+  color: black;
+  
+}
+.SetteiHeader
+{
+  width: 80%;
+  table-layout: fixed;
+  margin: auto;
+  text-align: center;
   margin-top: 20px;
 }
 

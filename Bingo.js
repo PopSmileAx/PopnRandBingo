@@ -7,6 +7,7 @@ function download() {
   html2canvas(target, options).then(function (canvas) {
     var dataURL = canvas.toDataURL();
     var link = document.createElement("a");
+
     link.href = dataURL;
     link.download = "download_" + yyyyMMddHHmmss() + ".png";
     link.click();
@@ -14,86 +15,130 @@ function download() {
 }
 
 function makeRandom() {
+  let headerText = "ポップンお題ビンゴ";
+  let makeButton = document.getElementById('makeButton');
+  makeButton.disabled = true;
 
-  const selectList = document.getElementById('levelSelect');
-  const option = selectList.value;
+  //選択されているレベルの判定
+  let selectList = setCheckedLevel();
 
-  // (1) XMLHttpRequestオブジェクトを作成
-  const xhr = new XMLHttpRequest();
-  let headerText = "";
-
-  // (2) 取得するファイルの設定
-  switch (option) {
-    case "45":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/45Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（45）";
-      break;
-    case "46":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/46Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（46）";
-      break;
-    case "47":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/47Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（47）";
-      break;
-    case "48":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/48Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（48）";
-      break;
-    case "49":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/49Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（49）";
-      break;
-    case "50":
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（50）";
-      break;
-    default:
-      xhr.open('get', 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt');
-      headerText = "ポップンランダムお題ビンゴ（50）";
-      break;
+  //ファイル名取得
+  let filePath = [];
+  for (var selectIdx = 0; selectIdx < selectList.length; selectIdx++) {
+    filePath.push(setFilePath(selectList[selectIdx]));
   }
 
-  // (3) リクエスト（要求）を送信
-  xhr.send();
+  //曲名リスト取得
+  let songArray = [];
 
-  xhr.onreadystatechange = function () {
+  for (var selectIdx = 0; selectIdx < filePath.length; selectIdx++) {
+    try {
+      var xhr = new XMLHttpRequest();
 
-    // (4) 通信が正常に完了したか確認
-    if (xhr.readyState === 4 && xhr.status === 200) {
+      // 同期処理で外部ファイルを処理する
+      xhr.open("GET", filePath[selectIdx], false);
 
-      // (5) 取得したレスポンスをページに表示
-      const file_area = document.getElementById('file_area');
+      // リクエストを送る
+      xhr.send(null);
 
-      //改行ごとに配列化
-      var arr = this.responseText.split('\n');
-      var workArray = [];
+      // 同期処理なのでresponseをこのタイミングで受け取れる
+      var arr = xhr.responseText.split(/\r\n|\n|\r/);
+      songArray = songArray.concat(arr);
+    }
+    // Ajax通信でエラーが起きた場合
+    catch (e) {
+    }
 
-      for (var i = 0, len = arr.length; i < 9; i++, len--) {
-        rand = Math.floor(Math.random() * len); // 0～len-1の範囲の整数からランダムに値を取得
-        workArray.push(arr.splice(rand, 1)[0]); // 配列のランダム値に対応するインデックスを得たうえで元々の配列から取り除く
-      }
+  }
+  //曲名(配列1番目）ORジャンル名（配列0番目）
+  let radio1Box = document.getElementById('radio1');
+  let nameIndex = 1;
+  if (!radio1Box.checked) {
+    nameIndex = 0;
+  }
 
-      //ヘッダ決定
-      let header = document.getElementById('tableHeader');
-      header.innerHTML = headerText;
+  //曲決定
+  var workArray = [];
+  for (var i = 0, len = songArray.length; i < 9; i++, len--) {
+    rand = Math.floor(Math.random() * len); // 0～len-1の範囲の整数からランダムに値を取得
+    namesArrey = songArray.splice(rand, 1)[0].split('\t'); //TSVを分割
 
-      //テーブルに曲名設定
-      let table = document.getElementById('target');
-      let cells = table.querySelectorAll('td');
-      let index = 0;
-      cells.forEach((cell) => {
-        let songName = workArray[index];
-        let songLength = countGrapheme(songName)
+    //曲名[レベル.難易度]表示を作成
+    dispString = namesArrey[nameIndex] + "\n" + "[" + namesArrey[2] + "," + namesArrey[3] + "]"
+    workArray.push(dispString);  //表示用配列に格納
+  }
 
-        cell.style.fontSize = setFontSize(songName, songLength);
+  //ヘッダ決定
+  let header = document.getElementById('tableHeader');
+  header.innerHTML = headerText;
 
-        cell.innerText = workArray[index];
-        index++;
-      });
+  //テーブルに曲名設定
+  let table = document.getElementById('target');
+  let cells = table.querySelectorAll('td');
+  let index = 0;
+  cells.forEach((cell) => {
+    let songName = workArray[index];
+    let songLength = countGrapheme(songName)
+
+    cell.style.fontSize = setFontSize(songName, songLength);
+    cell.style.height = "120px";
+    cell.innerText = workArray[index];
+    index++;
+  });
+
+  //作成ボタンを元に戻す
+  makeButton.disabled = false;
+};
+
+//曲ファイル決定処理
+function setFilePath(option) {
+  switch (option) {
+    case "42":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/42Music.txt';
+    case "43":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/43Music.txt';
+    case "44":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/44Music.txt';
+    case "45":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/45Music.txt';
+    case "46":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/46Music.txt';
+    case "47":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/47Music.txt';
+    case "48":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/48Music.txt';
+    case "49":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/49Music.txt';
+    case "50":
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt';
+    default:
+      return 'https://popsmileax.github.io/PopnRandBingo/Data/50Music.txt';
+  }
+}
+
+//曲レベル確認
+function setCheckedLevel() {
+  let retItems = [];
+  var CHKLIST = ['chk42', 'chk43', 'chk44','chk45', 'chk46', 'chk47', 'chk48', 'chk49', 'chk50'];
+
+  //チェックボックス確認
+  for (var chkIndex = 0; chkIndex < CHKLIST.length; chkIndex++) {
+    let chkBoxItem = document.getElementById(CHKLIST[chkIndex]);
+    if (chkBoxItem.checked) {
+      retItems.push(chkBoxItem.value);
     }
   }
-};
+
+  //何も選択していない場合
+  if (retItems.length == 0) {
+    //強制的に50をやらせます
+    retItems.push("50");
+  }
+
+  return retItems;
+}
+
+
 
 //フォントサイズ決定処理
 function setFontSize(songName, songLength) {
@@ -126,22 +171,25 @@ function countGrapheme(string) {
 }
 
 
-// クラスのインスタンス化
-const currentDate = new Date();
-// 年
-const year = currentDate.getFullYear();
-// 月
-const month = currentDate.getMonth() + 1;
-// 日
-const day = currentDate.getDate();
-// 時間
-const hour = currentDate.getHours();
-// 分
-const min = currentDate.getMinutes();
-// 秒
-const sec = currentDate.getSeconds();
+
 
 function yyyyMMddHHmmss() {
+
+  // クラスのインスタンス化
+  const currentDate = new Date();
+  // 年
+  const year = currentDate.getFullYear();
+  // 月
+  const month = currentDate.getMonth() + 1;
+  // 日
+  const day = currentDate.getDate();
+  // 時間
+  const hour = currentDate.getHours();
+  // 分
+  const min = currentDate.getMinutes();
+  // 秒
+  const sec = currentDate.getSeconds();
+  
   const date =
     year +
     String(month).padStart(2, "0") +
